@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet", type="text/css", href="{% static 'css/style.css' %}">
+
+<h3>Base Content Page:
+    <a href= "{% url 'homepage' %}">Homepage  </a>
+    <a href= "{% url 'renderpage' %}"> Render Page  </a>
+    <a href= "{% url 'classpage' %}"> Class Page  </a>
+</h3>
+
+{% block content %}
+{% endblock content %}

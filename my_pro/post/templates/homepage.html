@@ -1,5 +1,30 @@
 {%extends 'base.html'%}
 
 {%block content%}
-<h3>Home page</h3>
+<P>Home page</P>
+<div>
+    This is a home page with div. <span>This text in a span tag</span>
+</div>
+<p></p>
+<table>
+    <tr>
+        <th>First Column </th>
+        <th>Second Column </th>
+    </tr>
+    <tr>
+        <td>Data1</td>
+        <td>Data2</td>
+    </tr>
+    <tr>
+        <td>Data3</td>
+        <td>Data4</td>
+    </tr>
+
+</table>
+
+
 {%endblock content%}
+
+{% block cont2%}
+    <p>This is a text from block cont2 on page Homepage.html</p>
+{% endblock cont2 %}

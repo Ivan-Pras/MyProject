@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from  django.http import HttpResponse
+from  django.http import HttpResponse,HttpRequest
 from django.shortcuts import render
+
 
 # Create your views here.
 
@@ -15,4 +16,15 @@ def renderpage(request):
     return render(request, template_name, context)
 
 def classpage(requset):
+    print("LALALALALALA")
     return render(requset, 'classpage.html')
+
+def usernamepage(request, username='undefined'):
+    if request.method == "GET":
+        print(f'request method GET {request.GET}')
+    if request.method == "POST":
+        username = request.POST['name1']
+    content={
+        'username':username,
+    }
+    return render(request,'username.html',content)

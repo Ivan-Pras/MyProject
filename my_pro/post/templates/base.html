@@ -1,12 +1,26 @@
 {% load static %}
 
-<link rel="stylesheet", type="text/css", href="{% static 'css/style.css' %}">
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>This is a title</title>
+        <link rel="stylesheet", type="text/css", href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <h3>Base Content Page:
+            <a href= "{% url 'homepage' %}">Homepage  </a>
+            <a href= "{% url 'renderpage' %}"> Render Page  </a>
+            <a href= "{% url 'classpage' %}"> Class Page  </a>
+        </h3>
 
-<h3>Base Content Page:
-    <a href= "{% url 'homepage' %}">Homepage  </a>
-    <a href= "{% url 'renderpage' %}"> Render Page  </a>
-    <a href= "{% url 'classpage' %}"> Class Page  </a>
-</h3>
+        {% block content %}
+        {% endblock content %}
+        <p></p>
+        <div>
+            This is a contect form Base.html
+        </div>
+        {% block cont2 %}
+        {% endblock cont2 %}
+    </body>
 
-{% block content %}
-{% endblock content %}
+</html>

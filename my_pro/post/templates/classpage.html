@@ -1,6 +1,13 @@
 {% extends 'base.html'%}
 
-{% block content%}
-<p> Class Page </p>
-
-{% endblock content%}
+    {% block content%}
+<h3> Class Page </h3>
+<div>
+    {{one}}
+ <ul class="list-group">
+    {% for post in all_posts_list %}
+        <li class="list-group-item">{{post.text}}</li>
+    {% endfor %}
+ </ul>
+</div>
+    {% endblock content%}

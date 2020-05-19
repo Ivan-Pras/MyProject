@@ -3,9 +3,11 @@
 {% block content %}
 <h1>This is a render page.</h1>
 
-<form method="post" action="{% url 'username' %}">{% csrf_token %}
-    <label>First Name</label><br>
-    <input type="text" name="name1"><br>
-    <input type="submit" value="Submit">
+<form method="get" action="{% url 'newpost' %}">{% csrf_token %}
+    <div class="form-group">
+        <label>First Name</label><br>
+        <textarea rows="4" cols="50" name="name1"></textarea><br>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </div>
 </form>
 {% endblock content %}

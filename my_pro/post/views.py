@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from  django.http import HttpResponse,HttpRequest
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic import ListView
+from .models import Post
 
 
 # Create your views here.
@@ -15,10 +17,6 @@ def renderpage(request):
     context = {'one':'string one11', 'two':a}
     return render(request, template_name, context)
 
-def classpage(requset):
-    print("LALALALALALA")
-    return render(requset, 'classpage.html')
-
 def usernamepage(request, username='undefined'):
     if request.method == "GET":
         print(f'request method GET {request.GET}')
@@ -28,3 +26,18 @@ def usernamepage(request, username='undefined'):
         'username':username,
     }
     return render(request,'username.html',content)
+
+def newPost (request):
+    if request.GET['name1']:
+        newPost=Post()
+        data=request.GET
+        newPost.text=data['name1']
+        newPost.save()
+    return redirect('/classpage/')
+
+class ClassPage (ListView):
+
+    model = Post
+    template_name = 'classpage.html'
+    context_object_name = "all_posts_list"
+
